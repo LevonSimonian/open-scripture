@@ -775,7 +775,6 @@ body.panes-on .versebar:not([hidden]) ~ .backpill{bottom:calc(160px + env(safe-a
     <div class="section-head"><div class="rubric">Four ways in</div><h2>Start wherever you like</h2></div>
     <div class="doors">
       <button class="door" data-go="timeline"><b>The Timeline</b><span>The entire story in fifteen moves, from creation to the last page. About fifteen minutes end to end.</span><em>Read this first →</em></button>
-      <button class="door wide" data-go="read"><b>Read the Bible</b><span>The full text of all 73 books. Tap any verse to highlight it, note it, save it to a folder, or open a study panel on it.</span><em>Open the text \u2192</em></button>
       <button class="door" data-go="books"><b>All 73 Books</b><span>What each book actually is, how long it is, how hard it reads, and whether it's a good place to begin.</span><em>Browse the shelf →</em></button>
       <button class="door" data-go="people"><b>Who's Who</b><span>The forty people who carry the story — plus a key to the three Marys, two Sauls and several Johns.</span><em>Meet the cast →</em></button>
       <button class="door" data-go="words"><b>Words Nobody Explains</b><span>Covenant, grace, gospel, righteousness. Thirty terms used as if everyone already knows them.</span><em>Look one up →</em></button>
@@ -894,7 +893,7 @@ body.panes-on .versebar:not([hidden]) ~ .backpill{bottom:calc(160px + env(safe-a
     <div class="era-top"><span class="era-num">08</span><span class="era-date">538–430 BC</span></div>
     <h2>Coming home, sort of</h2>
     <div class="era-books ref">Ezra · Nehemiah · Esther · Haggai · Zechariah · Malachi</div>
-    <p>Persia conquers Babylon and lets the exiles go home. They rebuild the temple — smaller, and the old men who remember the first one weep. <strong>Nehemiah</strong> rebuilds the city walls; <strong>Ezra</strong> re-teaches the law. <strong>Esther</strong>, meanwhile, saves the Jews who stayed in Persia, in a book that never once mentions God. <strong>Tobit</strong> and <strong>Judith</strong> sit alongside these \u2014 two smaller stories about keeping faith far from home.</p>
+    <p>Persia conquers Babylon and lets the exiles go home. They rebuild the temple — smaller, and the old men who remember the first one weep. <strong>Nehemiah</strong> rebuilds the city walls; <strong>Ezra</strong> re-teaches the law. <strong>Esther</strong>, meanwhile, saves the Jews who stayed in Persia, in a book that never once mentions God. <strong>Tobit</strong> and <strong>Judith</strong> sit alongside these — two smaller stories about keeping faith far from home.</p>
     <p>But there's no king, they're still somebody's province, and the last prophet signs off promising that a messenger will come. Then the Old Testament simply stops, mid-sentence in narrative terms.</p>
     <div class="people"><span>Ezra</span><span>Nehemiah</span><span>Esther</span><span>Second Temple</span></div>
     <div class="keep"><div class="rubric">Keep hold of</div><p>The Old Testament ends unfinished on purpose. It's a story waiting for someone.</p></div>
@@ -1425,7 +1424,7 @@ body.panes-on .versebar:not([hidden]) ~ .backpill{bottom:calc(160px + env(safe-a
 
   <article class="book" data-t="nt letter pick"><div class="book-top"><span class="book-num">66</span><h3 class="book-name">James</h3><span class="pick">Start here</span></div>
     <p class="tagline">Faith you can actually see.</p>
-    <p class="sum">Probably written by James, named in the gospels as a brother of Jesus \u2014 a word Catholic and Orthodox tradition reads as kinsman. Rapid, confrontational and practical: what you do with your money, your temper, your tongue and the person nobody's making room for.</p>
+    <p class="sum">Probably written by James, named in the gospels as a brother of Jesus — a word Catholic and Orthodox tradition reads as kinsman. Rapid, confrontational and practical: what you do with your money, your temper, your tongue and the person nobody's making room for.</p>
     <div class="meta"><span class="len"><i class="nt" style="width:3%"></i></span><span class="ref">5 chapters</span><span class="diff">Easy</span></div></article>
 
   <article class="book" data-t="nt letter"><div class="book-top"><span class="book-num">67</span><h3 class="book-name">1 Peter</h3></div>
@@ -3920,7 +3919,7 @@ var BFS_CONFIG = {
     b.textContent = 'Read it';
     b.onclick = function(e){
       e.stopPropagation();
-      var tab = document.querySelector('.tab[data-go="read"]');
+      var tab = document.querySelector('#panebar [data-pane="text"]');
       if(tab) tab.click();
       setTimeout(function(){ loadIndex().then(function(){ openBook(n, 1); }); }, 90);
     };
@@ -3985,7 +3984,7 @@ var BFS_CONFIG = {
     root.querySelectorAll('[data-open]').forEach(function(b){
       b.onclick = function(){
         var p = b.getAttribute('data-open').split('|');
-        var tab = document.querySelector('.tab[data-go="read"]');
+        var tab = document.querySelector('#panebar [data-pane="text"]');
         if(tab) tab.click();
         setTimeout(function(){ openBook(p[0], parseInt(p[1].split(':')[0],10)); }, 90);
       };
@@ -4200,7 +4199,7 @@ var BFS_CONFIG = {
     if(rd){
       var name = rd.getAttribute('data-peekread');
       close(); push();
-      var tab2 = document.querySelector('.tab[data-go="read"]');
+      var tab2 = document.querySelector('#panebar [data-pane="text"]');
       if(tab2) tab2.click();
       setTimeout(function(){ if(window.BFS_READER) window.BFS_READER.open(name, 1); }, 90);
     }
